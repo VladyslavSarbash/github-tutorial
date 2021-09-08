@@ -145,18 +145,20 @@ import usersArr from './users.js';
 // [] вернет ''
 
 // const simpson = [
-//   { name: "Bart" },
-//   { name: "Lisa" },
-//   { name: "Maggie" },
-//   { name: "Homer" },
-//   { name: "Marge" },
+//   { name: 'Bart' },
+//   { name: 'Lisa' },
+//   { name: 'Maggie' },
+//   { name: 'Homer' },
+//   { name: 'Marge' },
 // ];
-
-// // const getList = (users) => {
-// //     const names = users.map(user => user.name);
-// //     return names.length <= 2 ? names.join(' & ') : names.slice(0, names.length - 1).join(", ") + ' & ' + names.pop();
-// // };
-
+// 1) Вариант
+// const getList = users => {
+//   const names = users.map(user => user.name);
+//   return names.length <= 2
+//     ? names.join(' & ')
+//     : names.slice(0, names.length - 1).join(', ') + ' & ' + names.pop();
+// };
+// 2) Вариант
 // const getList = (users) =>
 //   users.map(({ name }) => name).length <= 2
 //     ? users.map(({ name }) => name).join(" & ")
@@ -166,8 +168,22 @@ import usersArr from './users.js';
 //         .join(", ") +
 //       " & " +
 //       users.map(({ name }) => name).pop();
+// 3) Вариант
 
-// console.log(getList(simpson))
+// function getList(names){
+//     return names.reduce(function(prev, current, index, array){
+//       if (index === 0){
+//         return current.name;
+//       }
+//       else if (index === array.length - 1){
+//         return prev + ' & ' + current.name;
+//       }
+//       else {
+//         return prev + ', ' + current.name;
+//       }
+//     }, '');
+//    }
+// console.log(getList(simpson));
 
 // TASK 13
 // сделать обьект, который будет возвращать любые количества букв А и Б в ключи обьекта.
@@ -193,3 +209,23 @@ import usersArr from './users.js';
 // };
 
 // console.log(count("abbbaaaaaaaabb", 'a', 'b'));
+
+// const ingredients = [
+//     'Картошка',
+//     'Грибы',
+//     'Чеснок',
+//     'Помидоры',
+//     'Зелень',
+//     'Приправы',
+//   ];
+
+// const ingredientsList = document.querySelector('#ingredients')
+// const makeIngredientsList = options => {
+//   return options.map(option => {
+//     const ingredientListEl = document.createElement('li');
+//   ingredientListEl.textContent = option;
+//   return ingredientListEl;
+// });
+// };
+// const elements = makeIngredientsList(ingredients);
+// ingredientsList.append(...elements);
